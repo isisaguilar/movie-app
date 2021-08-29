@@ -1,0 +1,6 @@
+post http://localhost:3000/one_actor/
+Content-Type: application/json
+
+{
+ "id": 8
+}

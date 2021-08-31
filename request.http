@@ -1,6 +1,52 @@
-post http://localhost:3000/one_actor/
+get http://localhost:3000/one_actor
+
+###
+
+post http://localhost:3000/one_actor
 Content-Type: application/json
 
 {
- "id": 8
+  "first_name":"Tom",
+  "last_name":"Hanks",
+  "known_for":"Toy Story"
 }
+###
+get http://localhost:3000/one_actor/11
+
+###
+patch http://localhost:3000/one_actor/8
+Content-Type: application/json
+
+{
+  "known_for":"Doctor Strange"
+}
+
+###
+delete http://localhost:3000/one_actor/12
+
+###
+get http://localhost:3000/one_movie
+
+###
+
+post http://localhost:3000/one_movie
+Content-Type: application/json
+
+{
+  "title":"Mulan",
+  "year":"1998",
+  "plot":"Fearful that her ailing father will be drafted into the Chinese military, Mulan (Ming-Na Wen) takes his spot -- though, as a girl living under a patriarchal regime, she is technically unqualified to serve. She cleverly impersonates a man and goes off to train with fellow recruits. Accompanied by her dragon, Mushu (Eddie Murphy), she uses her smarts to help ward off a Hun invasion, falling in love with a dashing captain along the way."
+}
+###
+get http://localhost:3000/one_movie/4
+
+###
+patch http://localhost:3000/one_movie/6
+Content-Type: application/json
+
+{
+  "title":"Dr. Seuss' Horton Hears A Who!"
+}
+
+###
+delete http://localhost:3000/one_movie/3

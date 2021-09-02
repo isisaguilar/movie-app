@@ -18,7 +18,8 @@ patch http://localhost:3000/one_actor/8
 Content-Type: application/json
 
 {
-  "known_for":"Doctor Strange"
+  "gender":"male",
+  "age": 45
 }
 
 ###
@@ -41,11 +42,12 @@ Content-Type: application/json
 get http://localhost:3000/one_movie/4
 
 ###
-patch http://localhost:3000/one_movie/6
+patch http://localhost:3000/one_movie/2
 Content-Type: application/json
 
 {
-  "title":"Dr. Seuss' Horton Hears A Who!"
+
+  "english": true
 }
 
 ###

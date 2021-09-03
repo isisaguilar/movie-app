@@ -1,7 +1,7 @@
 class ActorsController < ApplicationController
   def index
     actors = Actor.all
-    render json: actors.as_json
+    render json: actors
   end
 
 
@@ -11,7 +11,7 @@ class ActorsController < ApplicationController
       last_name:params[:last_name],
       known_for:params[:known_for],
       gender:params[:gender],
-      age:params[:age]
+      age:params[:age],movie_id:params[:movie_id]
     )
     actor.save
     render json: actor
@@ -20,7 +20,7 @@ class ActorsController < ApplicationController
   def show
     input = params[:id].to_i
     actor = Actor.find(input)
-    render json: actor.as_json
+    render json: actor
   end
 
   def update
@@ -30,10 +30,11 @@ class ActorsController < ApplicationController
       last_name:params[:last_name] || actor.last_name,
       known_for:params[:known_for] || actor.known_for,
       gender:params[:gender] || actor.gender,
-      age:params[:age] || actor.age
+      age:params[:age] || actor.age,
+      movie_id:params[:movie_id] ||actor.movie_id
     )
     actor.save
-    render json: actor.as_json
+    render json: actor
   end  
 
   def destroy
@@ -41,13 +42,6 @@ class ActorsController < ApplicationController
     actor = Actor.find(input)
     actor.destroy
     render json:{message:"actor has been destroyed"}
-  end
-
-
-  def actor_post
-    input = params[:id]
-    actor = Actor.find(input)
-    render json: actor.as_json
   end
 
 end

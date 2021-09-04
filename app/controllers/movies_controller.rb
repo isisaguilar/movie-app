@@ -14,8 +14,11 @@ class MoviesController < ApplicationController
       director:params[:director],
       english:params[:english]
     )
-    movie.save
-    render json: movie.as_json
+    if movie.save
+      render json: movie.as_json
+    else 
+      render json: movie.errors.full_messages
+    end
   end
 
   def show
@@ -27,14 +30,17 @@ class MoviesController < ApplicationController
   def update
     movie = Movie.find(params[:id])
     movie.update(
-      title:params[:title] || movie.title,
-      year:params[:year] || movie.year,
-      plot:params[:plot] || movie.plot,
-      director:params[:director] || movie.director,
-      english:params[:english] || movie.english
+      title:params[:title],
+      year:params[:year],
+      plot:params[:plot],
+      director:params[:director],
+      english:params[:english] 
     )
-    movie.save
-    render json: movie.as_json
+    if movie.save
+      render json: movie.as_json
+    else
+      render json: movie.errors.full_messages
+    end
   end  
 
   def destroy

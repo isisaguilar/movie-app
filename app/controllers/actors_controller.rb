@@ -13,8 +13,11 @@ class ActorsController < ApplicationController
       gender:params[:gender],
       age:params[:age],movie_id:params[:movie_id]
     )
-    actor.save
-    render json: actor
+    if actor.save
+      render json: actor
+    else
+      render json: actor.errors.full_messages
+    end
   end
 
   def show
@@ -26,15 +29,18 @@ class ActorsController < ApplicationController
   def update
     actor = Actor.find(params[:id])
     actor.update(
-      first_name:params[:first_name] || actor.first_name,
-      last_name:params[:last_name] || actor.last_name,
-      known_for:params[:known_for] || actor.known_for,
-      gender:params[:gender] || actor.gender,
-      age:params[:age] || actor.age,
-      movie_id:params[:movie_id] ||actor.movie_id
+      first_name:params[:first_name],
+      last_name:params[:last_name],
+      known_for:params[:known_for],
+      gender:params[:gender],
+      age:params[:age],
+      movie_id:params[:movie_id]
     )
-    actor.save
-    render json: actor
+    if actor.save
+      render json: actor
+    else
+      render json: actor.errors.full_messages
+    end
   end  
 
   def destroy

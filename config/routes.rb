@@ -19,4 +19,9 @@ get "/one_movie/:id" => "movies#show"
 patch "/one_movie/:id" => "movies#update"
 
 delete "/one_movie/:id" => "movies#destroy"
+
+post "/users" => "users#create"
+
+post "/sessions" => "sessions#create"
+
 end

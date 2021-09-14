@@ -1,9 +1,15 @@
-get http://localhost:3000/one_actor
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 
+get http://localhost:3000/one_actor
+Content-Type: application/json
+Authorization: Bearer
+{{jwt}}
 ###
 
 post http://localhost:3000/one_actor
 Content-Type: application/json
+Authorization: Bearer
+{{jwt}}
 
 {
   "first_name":"Tom",
@@ -12,10 +18,14 @@ Content-Type: application/json
 }
 ###
 get http://localhost:3000/one_actor/11
+Authorization: Bearer
+{{jwt}}
 
 ###
 patch http://localhost:3000/one_actor/8
 Content-Type: application/json
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 
 {
   "gender":"male",
@@ -24,14 +34,19 @@ Content-Type: application/json
 
 ###
 delete http://localhost:3000/one_actor/12
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 
 ###
 get http://localhost:3000/one_movie
-
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 ###
 
 post http://localhost:3000/one_movie
 Content-Type: application/json
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 
 {
   "title":"Mulan",
@@ -40,10 +55,14 @@ Content-Type: application/json
 }
 ###
 get http://localhost:3000/one_movie/4
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 
 ###
 patch http://localhost:3000/one_movie/2
 Content-Type: application/json
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
 
 {
 
@@ -52,3 +71,27 @@ Content-Type: application/json
 
 ###
 delete http://localhost:3000/one_movie/3
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
+### Users create (signup)
+POST http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
+
+{
+  "name": "Milo",
+  "email": "milo@mail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjQ2MTd9.XrqfCrBXUSUe9x8bNWjEDJE0MM2u3W-s4hGQsCO6iz0
+
+{
+  "email": "bubby@mail.com",
+  "password": "password"
+}

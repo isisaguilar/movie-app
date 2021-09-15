@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 before_action :authenticate_admin, except: [:index, :show]
   def index
     movies = Movie.all
-    render json: movies.as_json
+    render json: movies
   end
 
 
@@ -15,7 +15,7 @@ before_action :authenticate_admin, except: [:index, :show]
       english:params[:english]
     )
     if movie.save
-      render json: movie.as_json
+      render json: movie
     else 
       render json: movie.errors.full_messages
     end
@@ -24,7 +24,7 @@ before_action :authenticate_admin, except: [:index, :show]
   def show
     input = params[:id].to_i
     movie = Movie.find(input)
-    render json: movie.as_json
+    render json: movie
   end
 
   def update
@@ -37,7 +37,7 @@ before_action :authenticate_admin, except: [:index, :show]
       english:params[:english] 
     )
     if movie.save
-      render json: movie.as_json
+      render json: movie
     else
       render json: movie.errors.full_messages
     end

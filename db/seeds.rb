@@ -7,17 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
-actor.save
+# actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
+# actor.save
 
-actor = Actor.new({first_name: "Mike", last_name: "Myers", known_for: "Shrek"})
-actor.save
+# actor = Actor.new({first_name: "Mike", last_name: "Myers", known_for: "Shrek"})
+# actor.save
 
-actor = Actor.new({first_name: "Jim", last_name: "Parsons", known_for: "Home"})
-actor.save
+# actor = Actor.new({first_name: "Jim", last_name: "Parsons", known_for: "Home"})
+# actor.save
 
-actor = Actor.new({first_name: "Ryan", last_name: "Reynolds", known_for: "Detective Pikachu"})
-actor.save
+# actor = Actor.new({first_name: "Ryan", last_name: "Reynolds", known_for: "Detective Pikachu"})
+# actor.save
 
 # movie = Movie.new(
 #   title:"Spies in Disguise",
@@ -39,3 +39,20 @@ actor.save
 #   plot:"Animated elephant Horton (Jim Carrey) finds a speck of dust floating in the Jungle of Nool. Upon investigation of the speck, Horton discovers the tiny city of Who-ville and its residents, the Whos, which he can hear but cannot see. Horton forms a friendship with the mayor of Who-ville, Ned McDodd (Steve Carell), and promises to transport Who-ville to safety. However, Horton encounters opposition from his jungle neighbors, who don't want to believe in the existence of Who-ville."
 # )
 # movie.save
+
+# Genre.create!([
+#   {name:"animated"},
+#   {name:"family"},
+#   {name:"comedy"},
+#   {name:"action"}
+# ])
+
+MovieGenre.create!([
+  {movie_id: 4, genre_id:4},
+  {movie_id: 4, genre_id:1},
+  {movie_id: 4, genre_id:2},
+  {movie_id: 7, genre_id:4},
+  {movie_id: 7, genre_id:1},
+  {movie_id: 6, genre_id:2},
+  {movie_id: 6, genre_id:3}
+])

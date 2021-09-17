@@ -95,3 +95,13 @@ Authorization: Bearer
   "email": "bubby@mail.com",
   "password": "password"
 }
+
+
+### MovieGenre create
+POST http://localhost:3000/movie_genres
+Content-Type: application/json
+
+{
+  "movie_id": 2,
+  "genre_id": 2
+}

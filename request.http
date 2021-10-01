@@ -45,8 +45,8 @@ Authorization: Bearer
 
 post http://localhost:3000/one_movie
 Content-Type: application/json
-Authorization: Bearer
-{{jwt}}
+# Authorization: Bearer
+# {{jwt}}
 
 {
   "title":"Mulan",
